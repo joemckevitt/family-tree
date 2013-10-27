@@ -1,4 +1,4 @@
-(ns data
+(ns familytree.data
   (use clojure.pprint))
 
 (def Noel {:id 1 :firstname "Noel", :surname "McKevitt", :dob "16-12-1954"})
