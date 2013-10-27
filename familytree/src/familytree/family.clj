@@ -1,7 +1,12 @@
 (ns family
-  (:use data)
+  (:use familytree.data)
   (:use clojure.pprint)
   (:use clojure.set))
+
+(defn find-family-firstname [families firstname]
+  (filter #(= (:firstname %) firstname) families))
+
+(pprint (find-family-firstname families "Noel"))
 
 (defn find-family [families surname]
   (filter #(= (:surname %) surname) families))
@@ -14,10 +19,19 @@
 
 (find-preloaded-familes "mckevitts")
 
-(defn getFamily [surname]
-  (find-preloaded-familes surname))
+(defn getFamily
+  ([surname] (find-preloaded-familes surname))
+  ([surname firstname] (find-preloaded-familes surname)))
 
 (pprint (getFamily "smiths"))
+(pprint (getFamily "mckevitts"))
+
+(pprint (getFamily "mckevitts" "john"))
+(pprint (getFamily "mckevitts" nil))
+
+
+
+
 (pprint (:father (getFamily "mckevitt") "nothing found!"))
 (pprint (:mother (getFamily "mckevitt")))
 (pprint (:sons (getFamily "mckevitt")))
@@ -41,3 +55,7 @@
 (pprint smiths)
 
 (pprint (seq mckevitts))
+
+;need to write a function which takes both a surname and firstname and returns back a set of matching
+;families.  something like
+;search-for-family(surname firstname(optional))
