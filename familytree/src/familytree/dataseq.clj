@@ -75,12 +75,20 @@
 ;need to write a function which takes both a surname and firstname and returns back a set of matching
 ;families.  something like
 ;search-for-family(surname firstname(optional))
-(defn filter-on-firstname
-  [firstname]
-    (filter #(= (:firstname %) firstname) (flatten allfamiles))
-  )
+;(defn filter-on-firstname
+;  [firstname]
+;    (filter #(= (:firstname %) firstname) (flatten allfamiles))
+;  )
+;
+;(defn match-person [surname firstname person]
+;  (and (= (:firstname person) firstname)
+;       (= (:surname person) surname)))
+;
+;(defn find-person [surname firstname]
+;  (pprint (filter #(match-person surname firstname %)
+;                  (flatten allfamiles))))
 
-(filter-on-firstname "Joe")
-(filter-on-firstname "John")
-(filter-on-firstname "Noel")
+;(filter-on-firstname "Joe")
+;(filter-on-firstname "John")
+;(filter-on-firstname "Noel")
 
